@@ -1,10 +1,66 @@
 <% include includes/header.ejs %>
-    <h1><%=title%></h1>
-    <ul>
-        <li>栏目1</li>
-        <li>栏目1</li>
-        <li>栏目1</li>
-        <li>栏目1</li>
-        <li>栏目1</li>
-    </ul>
+<div class="container-fluid">
+    <% include includes/left-nav.ejs %>
+    <div class="col-lg-offset-2 col-lg-10">
+        <% if (hotMovies && hotMovies.length > 0) { %>
+        <div class="row main-show">
+            <div class="col-lg-offset-1 col-lg-11 col-md-12 col-sm-12">
+                <div class="douban fav">
+                    <div class="douban-title">
+                        <div class="d-t-wrap">
+                            <span>正在热映</span>
+                        </div>
+                    </div>
+                    <div class="douban-fav">
+                        <div class="douban-pic">
+                            <div class="douban-stic">热映</div>
+                            <a href="<%=hotMovies[0].trailer_urls%>" title="<%=hotMovies[0].title%>" target="new"></a>
+                            <i class="bg"></i>
+                            <img alt="<%=hotMovies[0].title%>" src="<%=hotMovies[0].images.large%>">
+                        </div>
+                        <div class="douban-txt">
+                            <h6 class="">
+                                <a href="<%=hotMovies[0].trailer_urls%>" title="<%=hotMovies[0].title%>" target="new"><%=hotMovies[0].genres%></a>
+                            </h6>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <% for ( var i = 1; i < hotMovies.length; i+=2 ) { %>
+                <div class="douban">
+                    <div class="douban-wrap">
+                        <div class="douban-pic">
+                            <a href="<%=hotMovies[i].trailer_urls%>" title="<%=hotMovies[i].title%>" target="new"></a>
+                            <i class="bg"></i>
+                            <img alt="<%=hotMovies[0].title%>" src="<%=hotMovies[i].images.large%>">
+                        </div>
+                        <div class="douban-txt">
+                            <h6 class="">
+                                <a href="<%=hotMovies[i].trailer_urls%>" title="<%=hotMovies[i].title%>" target="new"><%=hotMovies[i].genres%></a>
+                            </h6>
+                            <p></p>
+                        </div>
+                    </div>
+                    <% if ( hotMovies[i+1] ) { %>
+                    <div class="douban-wrap">
+                        <div class="douban-pic">
+                            <a href="<%=hotMovies[i+1].trailer_urls%>" title="<%=hotMovies[i+1].title%>" target="new"></a>
+                            <i class="bg"></i>
+                            <img alt="<%=hotMovies[i+1].title%>" src="<%=hotMovies[i+1].images.large%>">
+                        </div>
+                        <div class="douban-txt">
+                            <h6 class="">
+                                <a href="<%=hotMovies[i+1].trailer_urls%>" title="<%=hotMovies[i+1].title%>" target="new"><%=hotMovies[i+1].genres%></a>
+                            </h6>
+                            <p></p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
 <% include ./includes/footer.ejs %>

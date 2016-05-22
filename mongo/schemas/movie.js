@@ -1,37 +1,56 @@
 var mongoose = require('mongoose')
+var HttpWrap = require('../../tool/HttpWrap')
+var httpWrap = new HttpWrap()
 
 var MovieSchema = new mongoose.Schema({
-    doctor: String,
+    rating: {
+        max: Number,
+        average: Number,
+        stars: Number,
+        min: Number
+    },
+    genres: Array,
     title: String,
-    language: String,
-    country: String,
-    summary: String,
-    flash: String,
-    poster: String,
-    year: Number,
-    meta: {
-        createTime: {
-            type: Date,
-            default: Date.now()
-        },
-        updateTime: {
-            type: Date,
-            default: Date.now()
-        }
-    }
+    //casts: Array,
+    collect_count: Number,
+    original_title: String,
+    subtype: String,
+    directors: Array,
+    year: String,
+    images: {
+        small: String,
+        large: String,
+        medium: String
+    },
+    alt: String,
+    id: String,
+    trailer_urls: String,
+    pubdates: String
 })
 
 /**
  * 当执行save方法时， 预先执行的回调函数
  */
-MovieSchema.pre('save', function(next) {
-    if (this.isNew) {
-        this.meta.createTime = this.meta.updateTime = Date.now()
-    } else {
-        this.meta.updateTime = Date.now()
-    }
-
-    next()
+MovieSchema.pre('save', function (next) {
+    var $this = this
+    httpWrap.htmlwrap({
+        method: 'GET',
+        url: 'https://movie.douban.com/subject/' + $this.id + '/'
+    }, {
+        success: function (data) {
+            var start = data.indexOf('https://movie.douban.com/trailer/')
+            if (start !== -1) {
+                var trailer_urls = data.match(/https:\/\/movie\.douban\.com\/trailer\/.*\/#content/)
+                $this.trailer_urls = trailer_urls[0]
+                next()
+            }
+        },
+        fail: function (e) {
+            // do nothing
+            console.log(e)
+            next()
+        }
+    })
 })
 
 MovieSchema.statics = {
@@ -40,7 +59,7 @@ MovieSchema.statics = {
      */
     fetch: function(cb) {
         return this.find({})
-            .sort('meta.updateTime')
+            .sort('id')
             .exec(cb)
     },
 

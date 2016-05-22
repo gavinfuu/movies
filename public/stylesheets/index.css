@@ -1,0 +1,403 @@
+body {
+    color: #000;
+    background: #fff;
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+body {
+    color: #000;
+    font-size: 12px;
+    line-height: 1.25;
+    font-family: ROCK,"\5FAE\8F6F\96C5\9ED1",helvetica,arial,sans-serif;
+    background: #f6f7fb;
+}
+
+.top-header {
+    position: relative;
+    width: 100%;
+    height: 128px;
+}
+
+.logo {
+    float: left;
+    width: 110px;
+    height: 48px;
+    text-indent: -9999px;
+    background: url('../images/seeai.png') 0 0 no-repeat;
+}
+
+.fixed-head {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-index {
+    border-bottom: 1px solid #dee2e5;
+    margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    clear: both;
+    position: relative;
+    padding-top: 18px;
+    text-align: center;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.navbar-logo {
+    position: absolute;
+    left: 20px;
+}
+
+.navbar-link-container {
+    position: relative;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.nav {
+    height: 45px;
+}
+
+.nav-crosswise li {
+    float: left;
+    top: 5px;
+}
+
+.main-fitler {
+    float: left;
+    border: 2px solid #f60;
+    border-right-width: 1px;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 2px 0 0 2px;
+    background: #fff;
+    font-size: 14px;
+    border-color: #F77E22;
+    outline: 0;
+}
+
+.main-bt-ct {
+    margin: 0;
+    padding: 0;
+    margin-left: -15px;
+}
+
+.main-fitler-button {
+    width: 100%;
+    border: 2px solid #F77E22;
+    border-radius: 0;
+    background: #F77E22;
+    height: 40px;
+    color: #fff;
+}
+
+.main-fitler-button:hover {
+    color: #fff;
+}
+
+.main-fitler-button:active {
+    color: #fff;
+}
+
+.col-main, .col {
+    float: left;
+    margin-right: 16px;
+    _display: inline;
+}
+
+.main-show {
+    /*height: 395px;*/
+    height: 475px;
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.col-main {
+    width: 432px;
+}
+
+.main-window {
+    position: relative;
+    margin-bottom: 16px;
+    width: 432px;
+    height: 248px;
+}
+
+.main-window .pic {
+    width: 432px;
+    height: 248px;
+}
+
+.main-window .bg,
+.wrap-window .bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/co32.png') 0 bottom repeat-x;
+    _background: 0;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/co32.png')
+}
+
+.wrap-window .bg {
+    display: block;
+    opacity: 1;
+    filter: none;
+    background: url('../images/co50.png') 0 bottom repeat-x;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/co50.png')
+}
+
+.txt {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    padding: 0 8px;
+    color: #fff;
+}
+.main-window .txt a {
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.wrap-window .txt a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-window .txt p,
+.wrap-window .txt p,
+.main-window .txt h6,
+.wrap-window .txt h6 {
+    margin: 0;
+}
+
+.wrap-window {
+    margin-bottom: 16px;
+}
+
+.st_lt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 7px 34px 0 8px;
+    width: 15px;
+    height: 54px;
+    line-height: 14px;
+    color: #FFF;
+    font-size: 14px;
+    background: url(/v3/dist/img/g/ui/pack/i_v9_25f194f.png) 0 -645px no-repeat;
+}
+
+.wrap-window {
+    position: relative;
+}
+
+.wrap-window .pic, .wrap-window img {
+    height: 116px;
+    overflow: hidden;
+    background: #f6f7fb;
+}
+
+.wrap-window * {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.wrap-window li, .wrap-window .caption {
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.info {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.info li {
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.info .play {
+    height: 27px;
+    position: absolute;
+    left: 0;
+    top: 84px;
+}
+
+.info .play a {
+    display: inline-block;
+    margin-right: 5px;
+    height: 27px;
+    line-height: 27px;
+    padding: 0 10px;
+    background: #F60;
+    text-indent: 0;
+    border-radius: 2px;
+}
+
+.wrap-window:hover .info {
+    display: block;
+}
+
+.wrap-window .txt {
+    padding-top: 7px;
+    color: #858e93;
+}
+
+.wrap-window .txt {
+    width: 196px;
+    position: absolute;
+    bottom: 3px;
+    margin: 0 8px;
+    color: #DEDEDE;
+    z-index: 6;
+}
+
+.wrap-window:hover .txt {
+    top: -3px;
+    height: 100%;
+    color: #afafaf;
+}
+
+.wrap-window:hover .pic i.bg {
+    background: #000;
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+.wrap-window:hover .st_lt {
+    display: none;
+}
+
+.col-main .wrap-window .bg {
+    width: 208px;
+}
+
+.col-main .wrap-window {
+    display: inline-block;
+}
+
+.col-main .wrap-window:last-child {
+    margin-left: 12px;
+}
+
+/*
+ * 豆瓣样式
+ */
+.douban {
+    position: relative;
+    float: left;
+    margin-right: 15px;
+}
+
+.fav {
+    padding-top: 42px;
+}
+
+.douban-title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.d-t-wrap {
+    padding: 10px;
+    background: #F77E22;
+    color: #fff;
+}
+
+.d-t-wrap span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.douban-wrap img {
+    width: 160px;
+    height: 223px;
+}
+
+.douban-wrap {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.douban-stic {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    line-height: 24px;
+    width: 45px;
+    padding: 10px;
+    background: #980A0A;
+    top: 68px;
+}
+
+.douban-pic a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    text-decoration: none;
+}
+
+.douban-fav .bg,
+.douban-wrap .bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    box-shadow: 0 70px 150px rgba(0, 0, 0, 0.57) inset;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+
+.douban-txt {
+    position: absolute;
+    bottom: 25px;
+}
+
+.douban-txt h6,
+.douban-txt p {
+    margin: 0;
+}
+
+.douban-txt a {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.douban-wrap .douban-txt a {
+    font-size: 18px;
+}
+
+.left-nav {
+    width: 200px;
+    height: 100%;
+    text-align: left;
+    background: #fff;
+    position: fixed;
+    _position: absolute;
+    left: 0;
+    top: 80px;
+    z-index: 10001;
+    box-shadow: 0 3px 6px rgba(0,0,0,.05);
+    font-family: ROCK,"\5FAE\8F6F\96C5\9ED1",helvetica,arial,sans-serif;
+}

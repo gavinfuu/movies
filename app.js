@@ -1,12 +1,17 @@
+var http = require('http')
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var _ = require('underscore')
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+var mongoose = require('mongoose')
+var Movie = require('./mongo/models/movie')
+mongoose.connect('mongodb://localhost/movies')
 
 var app = express();
 
@@ -64,3 +69,54 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(3000)
+
+var timer = setInterval(function() {
+    var qs = require('querystring');
+    var data = {
+        city: '广州',
+        start: 1,
+        count: 20
+    };//这是需要提交的数据
+
+    var content = qs.stringify(data);
+
+    var options = {
+        hostname: 'api.douban.com',
+        path: '/v2/movie/in_theaters?' + content,
+        method: 'GET'
+    };
+
+    var rescontent = ''
+
+    var req = http.request(options, function (res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            rescontent += chunk
+        });
+
+        res.on('end', function() {
+            var dj = JSON.parse(rescontent)
+
+            console.log(dj)
+
+            for (i in dj.subjects) {
+                var _movie = new Movie();
+                _.extend(_movie, dj.subjects[i])
+
+                _movie.save(function(err, movie) {
+                    if (err) {
+                        console.log(err)
+                    }
+                })
+            }
+        })
+    });
+
+    req.on('error', function (e) {
+        console.log('problem with request: ' + e.message);
+    });
+
+    req.end();
+
+    clearInterval(timer)
+}, 1000)

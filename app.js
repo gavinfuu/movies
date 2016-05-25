@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var _ = require('underscore')
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var admin = require('./routes/admin/admin');
+var graceful = require('graceful');
 var mongoose = require('mongoose')
 var Movie = require('./mongo/models/movie')
 mongoose.connect('mongodb://localhost/movies')
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 增加路由
 app.use('/', routes);
 app.use('/users', users);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -68,9 +70,18 @@ app.use(function (err, req, res, next) {
     });
 });
 
-app.listen(3000)
+var server = app.listen(3000)
 
-var timer = setInterval(function() {
+/**
+ * 优雅退出
+ * 淘宝nodejs， 优雅退出方案
+ */
+graceful({
+    servers: [server],
+    killTimeout: '30s',
+});
+
+/*var timer = setInterval(function() {
     var qs = require('querystring');
     var data = {
         city: '广州',
@@ -119,4 +130,4 @@ var timer = setInterval(function() {
     req.end();
 
     clearInterval(timer)
-}, 1000)
+}, 1000)*/

@@ -1,0 +1,38 @@
+body {
+    background: #F8F8F8;
+}
+
+.black-nav {
+    background-color: #333;
+    border-radius: 0;
+    border: 0;
+}
+
+.black-nav a {
+    color: #fff;
+}
+
+.black-nav .navbar-nav>li>a {
+    color: #F3F3F3;
+}
+
+.black-nav .navbar-nav>li>a:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+.source-panel {
+    height: 500px;
+    background: rgba(182, 182, 182, 0.51);
+    padding-top: 15px;
+    color: #000;
+    font-size: 16px;
+}
+
+.console-panel {
+    height: 500px;
+    background: #fff;
+    padding-top: 15px;
+    color: #fff;
+    font-size: 16px;
+}

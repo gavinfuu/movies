@@ -22,9 +22,9 @@ body {
 }
 
 .source-panel {
-    height: 500px;
     background: rgba(182, 182, 182, 0.51);
     padding-top: 15px;
+    padding-bottom: 15px;
     color: #000;
     font-size: 16px;
 }
@@ -35,4 +35,33 @@ body {
     padding-top: 15px;
     color: #fff;
     font-size: 16px;
+}
+
+.film .thumbnail {
+    background-color: inherit;
+    border: 0;
+}
+
+.update-time {
+    font-size: 12px;
+    display: inline-block;
+    color: #797979;
+}
+
+.source-views {
+    height: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+@media (max-width: 500px) {
+    .source-views .film-container {
+        width: 100%;
+    }
+}
+.source-views .film-container {
+    float: none;
+    display: inline-block;
+
 }

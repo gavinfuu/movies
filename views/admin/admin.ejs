@@ -47,57 +47,15 @@
     <div class="row">
         <div class="container-fluid source-panel">
             <h3>豆瓣.资源 <span class="update-time">最后一次更新时间: 2016-05-26 00:00:00</span></h3>
-            <div class="row">
-                <div class="source-views">
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
+            <div id="wrapper" class="source-views">
+                <div id="scroller" style="width: <%=movies.length * 350 + 20%>px;">
+                    <% for (var i = 0; i < movies.length; i++) { %>
+                    <div class="film">
+                        <a href="<%=movies[i].trailer_urls%>" class="thumbnail">
+                            <img alt="<%=movies[i].title%>" src="<%=movies[i].images.large%>">
+                        </a>
                     </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="film-container col-sm-6 col-md-4 col-lg-3 ">
-                        <div class="film">
-                            <a href="#" class="thumbnail">
-                                <img alt="百鸟朝凤" src="http://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325714098.jpg">
-                            </a>
-                        </div>
-                    </div>
+                    <% } %>
                 </div>
             </div>
 
@@ -110,3 +68,7 @@
     </div>
 </div>
 <% include ../includes/admin/footer.ejs %>
+<script type="text/javascript" src="/lib/iscroll/build/iscroll.js"></script>
+<script type="text/javascript" src="/js/admin/admin.js"></script>
+</body>
+</html>

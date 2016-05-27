@@ -22,11 +22,13 @@ body {
 }
 
 .source-panel {
+    position: relative;
     background: rgba(182, 182, 182, 0.51);
     padding-top: 15px;
     padding-bottom: 15px;
     color: #000;
     font-size: 16px;
+    height: 540px;
 }
 
 .console-panel {
@@ -49,19 +51,44 @@ body {
 }
 
 .source-views {
-    height: 400px;
+    position: absolute;
+    z-index: 1;
+    top: 70px;
+    bottom: 48px;
+    left: 0;
+    width: 100%;
+    background: #ccc;
     overflow: hidden;
-    white-space: nowrap;
-    overflow-x: auto;
+    height: 450px;
+    top: 85px;
 }
 
-@media (max-width: 500px) {
-    .source-views .film-container {
-        width: 100%;
-    }
+#scroller {
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 5000px;
+    height: 100%;
+    background-color: #D6D6D6;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
 }
-.source-views .film-container {
-    float: none;
-    display: inline-block;
 
+.film {
+    display: block;
+    float: left;
+    width: 350px;
 }
